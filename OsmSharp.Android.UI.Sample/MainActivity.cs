@@ -144,13 +144,13 @@ namespace OsmSharp.Android.UI.Sample
             _mapView.MapTilt = 0;
             _mapView.MapCenter = new GeoCoordinate(51.261203, 4.780760);
             _mapView.MapZoom = 16;
-            _mapView.MapAllowTilt = false;
+            _mapView.MapAllowTilt = true;
 
             _mapView.MapTouchedUp += _mapView_MapTouchedUp;
             _mapView.MapTouched += _mapView_MapTouched;
             _mapView.MapTouchedDown += _mapView_MapTouchedDown;
 
-            // AddMarkers();
+            AddMarkers();
             // AddControls();
 
             // initialize a text view to display routing instructions.
@@ -172,7 +172,10 @@ namespace OsmSharp.Android.UI.Sample
             //timer.Elapsed += new ElapsedEventHandler(TimerHandler);
             //timer.Start();
 
-            _centerMarker = _mapView.AddMarker(_mapView.MapCenter);
+			_centerMarker = new MapMarker(this, _mapView.MapCenter, MapControlAlignmentType.CenterBottom, this.Resources, Resource.Drawable.marker);
+			_mapView.AddMarker(_centerMarker);
+
+            //_centerMarker = _mapView.AddMarker(_mapView.MapCenter);
 
             _mapView.MapInitialized += _mapView_MapInitialized;
 

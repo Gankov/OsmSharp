@@ -145,7 +145,7 @@ namespace OsmSharp.iOS.UI.Sample
 			// define the mapview.
 			_mapView = new MapView();
 			//_mapView.MapTapEvent += new MapViewEvents.MapTapEventDelegate(_mapView_MapTapEvent);
-            _mapView.MapAllowTilt = false;
+            _mapView.MapAllowTilt = true;
 			_mapView.Map = map;
             _mapView.MapMaxZoomLevel = 19;
             _mapView.MapMinZoomLevel = 0;
